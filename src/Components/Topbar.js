@@ -2,10 +2,15 @@ import { Search, Notification, Filter } from "@bigbinary/neeto-icons";
 import { Header } from "@bigbinary/neetoui/v2/layouts";
 import { Button } from "@bigbinary/neetoui/v2";
 import { Tooltip } from "@bigbinary/neetoui/v2";
+import {useState} from "react"
+import ShowSubscibe from "./ShowSubscribe";
 
 const Topbar = () => {
+  const [showSubscibe, setShowSubscribe] = useState(false)
+  const [showFilter, setShowFilter] = useState(false)
+
   return (
-    <div className="pl-6 pr-6 divide-y border-b-2">
+    <div className="pl-6 pr-6 divide-y border-b-8">
       <Header
         actionBlock={
           <>
@@ -26,6 +31,7 @@ const Topbar = () => {
                 content: "Notification",
                 placement: "bottom"
               }}
+              onClick={() => setShowSubscribe(!showSubscibe)}
             />
             
             <Button
@@ -33,11 +39,13 @@ const Topbar = () => {
               onClick={function noRefCheck() {}}
               style="secondary"
               icon={Filter}
+              onClick ={() => setShowFilter(true)}
             />
           </>
         }
         title="Feed.ly"
       />
+      <ShowSubscibe showSubscibe={showSubscibe} setShowSubscribe={setShowSubscribe}/>
     </div>
   );
 };

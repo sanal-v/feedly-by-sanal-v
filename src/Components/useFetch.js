@@ -7,9 +7,11 @@ const useFetch = url =>{
 
     const fetchNews =async(url)=>{
         const res = await axios(url)
-        const apiData= res.data
+        const apiData= await res.data
         setNews(apiData)
         setLoading(false)
+        console.log(apiData)
+        console.log("hello")
     }
     useEffect(() =>{
         fetchNews(url)

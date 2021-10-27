@@ -6,7 +6,10 @@ function App() {
   return (
     <div >
       <Navbar />
-      <Dashboard />
+      <Dashboard category="national" />
+      <Dashboard category="world"/>
+      <Dashboard category="business"/>
+      <Dashboard category="sports"/>
     </div>
   );
 }
