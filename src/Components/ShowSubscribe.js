@@ -6,7 +6,7 @@ import subPic from "../Pictures/Subpic.png"
 
 const ShowSubscibe = ({ showSubscibe, setShowSubscribe }) => {
   return (
-    <Modal isOpen={showSubscibe} size="xs" closeButton={false}>
+    <Modal isOpen={showSubscibe} size="xs" closeButton={false} onClose={()=>setShowSubscribe(false)}>
       {console.log(showSubscibe)}
     <Modal.Body className="mt-5">
       <div className = "mt-8 ml-auto mr-auto">
