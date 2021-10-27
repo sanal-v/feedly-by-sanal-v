@@ -4,6 +4,7 @@ import { Button } from "@bigbinary/neetoui/v2";
 import { Tooltip } from "@bigbinary/neetoui/v2";
 import {useState} from "react"
 import ShowSubscibe from "./ShowSubscribe";
+import ShowFilter from "./ShowFilter"
 
 const Topbar = () => {
   const [showSubscibe, setShowSubscribe] = useState(false)
@@ -39,13 +40,14 @@ const Topbar = () => {
               onClick={function noRefCheck() {}}
               style="secondary"
               icon={Filter}
-              onClick ={() => setShowFilter(true)}
+              onClick ={() => setShowFilter(!showFilter)}
             />
           </>
         }
         title="Feed.ly"
       />
       <ShowSubscibe showSubscibe={showSubscibe} setShowSubscribe={setShowSubscribe}/>
+      <ShowFilter showFilter={showFilter} setShowFilter={setShowFilter} />
     </div>
   );
 };
