@@ -18,10 +18,11 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
       <Typography style="h4" className="text-gray-600">Category</Typography>
         <div>
             <Checkbox className="p-5" id="filter" label="All" />
-            <Checkbox className="p-5" id="filter" label="National" />
-            <Checkbox className="p-5" id="filter" label="World" />
+            <Checkbox className="p-5" id="filter" label="Science" />
             <Checkbox className="p-5" id="filter" label="Business" />
+            <Checkbox className="p-5" id="filter" label="National" />
             <Checkbox className="p-5" id="filter" label="Sports" />
+            <Checkbox className="p-5" id="filter" label="World" />
             <Checkbox className="p-5" id="filter" label="Technology" />
         </div>
       </Pane.Body>

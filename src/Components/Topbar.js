@@ -11,7 +11,7 @@ const Topbar = () => {
   const [showFilter, setShowFilter] = useState(false)
 
   return (
-    <div className="pl-6 pr-6 divide-y border-b-8">
+    <div className="pl-6 pr-6 divide-y border-b-2">
       <Header
         actionBlock={
           <>
