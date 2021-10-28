@@ -1,16 +1,22 @@
 import './App.css';
-import Dashboard from './Components/Landing/Dashboard';
+import Article from './Components/ArticlePage/Article';
+import Home from './Components/Home';
 import Navbar from './Components/Topbar';
+// import Switch from "react-router-dom"
+import {Route,Switch,BrowserRouter as Router} from "react-router-dom"
 
 function App() {
   return (
+    <Router>
     <div >
       <Navbar />
-      <Dashboard category="national" />
-      <Dashboard category="world"/>
-      <Dashboard category="business"/>
-      <Dashboard category="sports"/>
+      <Switch>
+        <Route exact path="/" component={()=><Home />} />
+        <Route exact path ="/article" component={() => <Article />}/>
+      </Switch>
+      {/* <Index /> */}
     </div>
+    </Router>
   );
 }
 

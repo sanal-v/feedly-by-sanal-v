@@ -1,4 +1,4 @@
-
+import {Link } from "react-router-dom"
 const MainSection =({news})=>{
     return(
           <div>
@@ -17,7 +17,7 @@ const MainSection =({news})=>{
               <div className="ml-5 flex-col">
                 <h3>{news && news.data[0]?.title}</h3>
                 <div className="text-right text-gray-500">
-                  {news && news.data[0]?.author} at {news && news.data[0]?.time}{" "}
+                  {news && news.data[0]?.author} at {news && news.data[0]?.time}
                   on {news && news.data[0]?.date}
                   <br />
                   <br />
@@ -27,9 +27,9 @@ const MainSection =({news})=>{
                   <br />
                   <br />
                 </div>
-                <a href="#" className="text-purple-500">
+                <Link to ={{pathname: "./article", state:{news}}}>
                   Read more
-                </a>
+                </Link>
               </div>
             </div>
           </div>
