@@ -8,7 +8,7 @@ import NoNews from "./NoNews";
 const Home = () => {
   let { filter, setFilter } = useContext(FilterContext);
 
-  const handleClose = ({ category }) => {
+  const handleClose = (category) => {
     console.log(category, "closed");
   };
   return (
@@ -23,7 +23,7 @@ const Home = () => {
             <Tag
               className="mr-5"
               label={category.charAt(0).toUpperCase() + category.slice(1)}
-              onClose={handleClose}
+              onClose={()=>handleClose(category)}
             />
           ))}
         </div>

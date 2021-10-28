@@ -1,14 +1,16 @@
 import "./App.css";
 import Article from "./Components/ArticlePage/Article";
 import Home from "./Components/Home";
-import Navbar from "./Components/Topbar";
+import Topbar from "./Components/Topbar";
 // import Switch from "react-router-dom"
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { useState, createContext } from "react";
+import UnknownPage from "./Components/UnknownPage";
 
 export const FilterContext = createContext();
 
 function App() {
+
   const [filter, setFilter] = useState([
     "national",
     "world",
@@ -20,10 +22,11 @@ function App() {
     <Router>
       <FilterContext.Provider value={{ filter, setFilter }}>
         <div>
-          <Navbar />
+          <Topbar />
           <Switch>
             <Route exact path="/" component={() => <Home />} />
             <Route exact path="/article" component={() => <Article />} />
+            <Route exact path="*" component={() => <UnknownPage />}/>
           </Switch>
         </div>
       </FilterContext.Provider>

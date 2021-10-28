@@ -18,6 +18,7 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
     "business":true,
     "sports":true
   });
+  
   const {filter,setFilter}= useContext(FilterContext)
 
   const handleSave =() =>{
