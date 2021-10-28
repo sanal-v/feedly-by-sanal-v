@@ -1,7 +1,6 @@
 import Dashboard from "./Landing/Dashboard";
 import ShowFilter from "./ShowFilter";
 import { useContext, useEffect } from "react";
-import useFilter from "./hooks/useFilter";
 import { FilterContext } from "../App";
 import { Tag } from "@bigbinary/neetoui/v2";
 

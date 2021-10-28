@@ -6,7 +6,6 @@ import { Checkbox } from "@bigbinary/neetoui/v2";
 import { Check } from "@bigbinary/neeto-icons";
 import {useState,useContext} from "react"
 import Home from "./Home";
-import useFilter from "./hooks/useFilter";
 import { FilterContext } from "../App";
 
 
