@@ -1,14 +1,32 @@
-import Dashboard from "./Landing/Dashboard"
+import Dashboard from "./Landing/Dashboard";
+import ShowFilter from "./ShowFilter";
+import { useContext, useEffect } from "react";
+import useFilter from "./hooks/useFilter";
+import { FilterContext } from "../App";
+import { Tag } from "@bigbinary/neetoui/v2";
 
-const Home =() =>{
-    return(
+const Home = () => {
+  let { filter, setFilter } = useContext(FilterContext);
+  
+  const handleClose=({category}) =>{
+    console.log(category,"closed")
+  }
+  return (
     <div>
-        <Dashboard category="national" />
-        <Dashboard category="world"/>
-        <Dashboard category="business"/>
-        <Dashboard category="sports"/>
+      <div className="ml-40 mr-40 mt-5">
+        {filter.map(category => (
+          <Tag
+            className="mr-5"
+            label={category.charAt(0).toUpperCase() + category.slice(1)}
+            onClose={handleClose}
+          />
+        ))}
+      </div>
+      {filter.map(category => (
+        <Dashboard category={category} />
+      ))}
     </div>
-    )
-}
+  );
+};
 
-export default Home
+export default Home;
