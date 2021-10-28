@@ -7,6 +7,7 @@ import { Check } from "@bigbinary/neeto-icons";
 import {useState,useContext} from "react"
 import Home from "./Home";
 import { FilterContext } from "../App";
+import {Link } from "react-router-dom"
 
 
 const ShowFilter = ({ showFilter, setShowFilter }) => {
@@ -100,12 +101,14 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
         </div>
       </Pane.Body>
       <Pane.Footer className="flex items-center space-x-2">
+      <Link to ={{pathname: "/"}}>
         <Button
           size="large"
           label="Save Changes"
           icon={Check}
           onClick={() => {setShowFilter(false);handleSave()}}
         />
+      </Link>
         <Button
           style="text"
           size="large"
