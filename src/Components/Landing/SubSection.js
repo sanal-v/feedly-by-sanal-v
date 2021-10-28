@@ -1,7 +1,9 @@
-const SubSection = ({ news }) => {
+import {Link } from "react-router-dom"
+
+const SubSection = ({ news,list }) => {
   return (
     <div className="grid grid-cols-2 gap-x-28">
-      {[1, 2, 3, 4].map(e => (
+      {list.map(e => (
         <div className="flex pt-4">
           <img className="h-20 w-20" src="https://picsum.photos/84/84" alt="something" />
           <div className="ml-3">
@@ -10,7 +12,9 @@ const SubSection = ({ news }) => {
               {news && news.data[e]?.author} at {news && news.data[e]?.time} on{" "}
               {news && news.data[e]?.date}
             </div>
-            <div className="my-1.5">Read more</div>
+            <Link to ={{pathname: "./article", state:{news,e}}}>
+                Read more
+            </Link>
           </div>
         </div>
       ))}

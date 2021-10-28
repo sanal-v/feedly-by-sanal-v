@@ -6,18 +6,20 @@ import useFetch from "../useFetch";
 const Index = () =>{
 	const allNews=useLocation().state
 	const news = allNews.news
-	console.log(news.data[0])
+	const n = allNews.e ? allNews.e : 0
+	const list = [0,1,2,3,4]
+	list.splice(n,1)
 	return(
 		<div className=" mx-40 mt-10">
 			{news&&(
 			<div className="flex-col border-b-2 pb-10">
 				<h1 id ="title" className="">
-					{news&&news.data[0]?.title}
+					{news&&news.data[n]?.title}
 				</h1>
-				<div id="Author" className="pt-5 text-gray-500">{news.data[0]?.author} at {news.data[0]?.time}on {news.data[0]?.date}</div>
+				<div id="Author" className="pt-5 text-gray-500">{news.data[n]?.author} at {news.data[n]?.time}on {news.data[n]?.date}</div>
 				<img className="ml-auto mr-auto pt-5" src="https://picsum.photos/543/304" alt="something"/>
 				<div id= "Content" className="pt-5">
-					{news.data[0]?.content}
+					{news.data[n]?.content}
 				</div>
 				<div>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas aliquam sagittis. Mauris fringilla justo nunc. Etiam auctor, eros eget semper imperdiet, enim mauris dictum justo, consequat rhoncus ipsum turpis ut quam. Curabitur dapibus sed diam at ullamcorper. Sed dapibus, ex sed posuere blandit, nisl nunc gravida ante, a scelerisque sem mauris at nibh. Vivamus tempus eros mauris, non imperdiet lectus rutrum a. Proin fringilla porta augue ac rutrum. Aenean vel euismod mi. Proin tincidunt lectus arcu, id consectetur nunc congue sed. Morbi tincidunt sollicitudin tristique. Nullam vel sapien pulvinar urna dapibus feugiat. Curabitur sit amet tristique diam.
@@ -26,7 +28,7 @@ const Index = () =>{
 				</div>
 			</div>
 			)}
-			<SubSection news={news}/>
+			<SubSection news={news} list={list}/>
 		</div>
 	)
 }
