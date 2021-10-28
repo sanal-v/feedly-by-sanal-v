@@ -7,12 +7,24 @@ import useFetch from "./useFetch";
 import { Modal } from "@bigbinary/neetoui/v2";
 import { Input } from "@bigbinary/neetoui/v2";
 import { Textarea } from "@bigbinary/neetoui/v2";
+import axios from "axios"
 
 function NoNews() {
   const [showFeedback, setShowFeedback] = useState(false);
+  const [userData, setuserData] = useState({})
+
   const { news, loading } = useFetch(
     `https://inshortsapi.vercel.app/news?category=all`
   );
+
+  const handleUserData = (e) => {
+    setuserData({...userData,[e.target.name]:e.target.value})
+  }
+
+  const handleSubmit =async() =>{
+      const res = await axios.post("https://webhook.site/1cf829a7-7ee2-4529-b864-d8c4ee897224",userData)
+      setuserData({})
+  }
 
   return showFeedback ? (
     <div>
@@ -33,17 +45,17 @@ function NoNews() {
             </p>
             <br />
             <div className="flex">
-                <Input className="pr-5"label="Name" placeholder="Oliver Smith" />
-                <Input label="Email" placeholder="oliver@example.com" />
+                <Input className="pr-5" name="name" label="Name" placeholder="Oliver Smith" onChange={handleUserData} />
+                <Input label="Email" name="email" placeholder="oliver@example.com" onChange={handleUserData} />
             </div>
-            <Textarea className="pt-5" label="Message" placeholder="Write your message here." />
+            <Textarea className="pt-5" name="message" label="Message" placeholder="Write your message here." onChange={handleUserData}/>
           </div>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
             size="large"
             label="Submit"
-            onClick={() => setShowFeedback(false)}
+            onClick={() => {setShowFeedback(false);handleSubmit()}}
           />
           <Button
             style="text"
