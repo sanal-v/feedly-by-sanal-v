@@ -10,7 +10,7 @@ const Dashboard = ({ category }) => {
   return (
     <>
       {news && news.data[0] && (
-        <div className="ml-40 mr-40 mt-5 border-b-2 pb-5">
+        <div className="ml-40 mr-40 mt-5 border-b-2">
           <MainSection news={news} />
           <SubSection news={news} list={[1,2,3,4]} />
         </div>  
