@@ -11,15 +11,9 @@ import {Link } from "react-router-dom"
 
 
 const ShowFilter = ({ showFilter, setShowFilter }) => {
+
   
-  const [categories, setCategories] = useState({
-    "national":true,
-    "world":true,
-    "business":true,
-    "sports":true
-  });
-  
-  const {filter,setFilter}= useContext(FilterContext)
+  const {categories, setCategories,filter,setFilter}= useContext(FilterContext)
 
   const handleSave =() =>{
     let selected = Object.keys(categories).filter(key => categories[key]==true)

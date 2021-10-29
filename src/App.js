@@ -17,10 +17,16 @@ function App() {
     "business",
     "sports"
   ]);
+  const [categories, setCategories] = useState({
+    "national":true,
+    "world":true,
+    "business":true,
+    "sports":true
+  });
 
   return (
     <Router>
-      <FilterContext.Provider value={{ filter, setFilter }}>
+      <FilterContext.Provider value={{ categories, setCategories, filter, setFilter }}>
         <div>
           <Topbar />
           <Switch>
