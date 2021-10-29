@@ -12,19 +12,18 @@ import {Link } from "react-router-dom"
 
 const ShowFilter = ({ showFilter, setShowFilter }) => {
 
-  
+  const allCategories = ["all","national","business","sports","world","politics","technology","startup","entertainment","miscellaneous","science","automobile"]
   const {categories, setCategories,filter,setFilter}= useContext(FilterContext)
 
   const handleSave =() =>{
     let selected = Object.keys(categories).filter(key => categories[key]==true)
     setFilter(selected)
   }
-
+  
   const handleCheck = (e) => {
     setCategories({...categories,[e.target.name]:e.target.checked})
   };
-  console.log(filter)
-
+ 
   return (
     <Pane isOpen={showFilter} onClose={() => setShowFilter(false)}>
       <Pane.Header>
@@ -37,62 +36,16 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
           Category
         </Typography>
         <div>
-          <Checkbox
+          {allCategories.map(cat =>(
+            <Checkbox
             className="p-5"
             id="filter"
-            label="All"
-            name="all"
-            checked={categories["all"]||false}
+            label={cat.charAt(0).toUpperCase() + cat.slice(1)}
+            name={cat}
+            checked={categories[cat]||false}
             onChange={handleCheck}
           />
-          <Checkbox
-            className="p-5"
-            id="filter"
-            label="Science"
-            name="science"
-            checked={categories["science"]||false}
-            onChange={handleCheck}
-          />
-          <Checkbox
-            className="p-5"
-            id="filter"
-            label="Business"
-            name="business"
-            checked={categories["business"]||false}
-            onChange={handleCheck}
-          />
-          <Checkbox
-            className="p-5"
-            id="filter"
-            label="National"
-            name="national"
-            checked={categories["national"]||false}
-            onChange={handleCheck}
-          />
-          <Checkbox
-            className="p-5"
-            id="filter"
-            label="Sports"
-            name="sports"
-            checked={categories["sports"]||false}
-            onChange={handleCheck}
-          />
-          <Checkbox
-            className="p-5"
-            id="filter"
-            label="World"
-            name="world"
-            checked={categories["world"]||false}
-            onChange={handleCheck}
-          />
-          <Checkbox
-            className="p-5"
-            id="filter"
-            label="Technology"
-            name="technology"
-            checked={categories["technology"]||false}
-            onChange={handleCheck}
-          />
+          ))}
         </div>
       </Pane.Body>
       <Pane.Footer className="flex items-center space-x-2">

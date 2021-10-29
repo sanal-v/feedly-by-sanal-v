@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import {useLocation} from "react-router-dom"
 import SubSection from "../Landing/SubSection";
-import useFetch from "../useFetch";
 import { Copy } from "@bigbinary/neeto-icons";
 
 const Index = () =>{

@@ -16,7 +16,7 @@ const MainSection =({news})=>{
               /> */}
               <div className="ml-5 flex-col">
                 <h3>{news && news.data[0]?.title}</h3>
-                <div className="text-right text-gray-500">
+                <div className="text-right text-gray-500 pt-5">
                   {news && news.data[0]?.author} at {news && news.data[0]?.time}
                   on {news && news.data[0]?.date}
                   <br />

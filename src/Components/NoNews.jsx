@@ -3,7 +3,7 @@ import { Button } from "@bigbinary/neetoui/v2";
 import noNews from "../Pictures/Group.png";
 import { Edit } from "@bigbinary/neeto-icons";
 import SubSection from "./Landing/SubSection";
-import useFetch from "./useFetch";
+import useFetch from "./Fetch";
 import { Modal } from "@bigbinary/neetoui/v2";
 import { Input } from "@bigbinary/neetoui/v2";
 import { Textarea } from "@bigbinary/neetoui/v2";
