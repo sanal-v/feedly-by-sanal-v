@@ -4,6 +4,7 @@ import { Copy } from "@bigbinary/neeto-icons";
 
 const Index = () =>{
 	const allNews=useLocation().state
+	console.log("news =",allNews)
 	const news = allNews.news
 	const n = allNews.e ? allNews.e : 0
 	const list = [0,1,2,3,4]
