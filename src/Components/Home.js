@@ -6,10 +6,12 @@ import { Tag } from "@bigbinary/neetoui/v2";
 import NoNews from "./NoNews";
 
 const Home = () => {
-  let { filter, setFilter } = useContext(FilterContext);
+  let { categories, setCategories, filter, setFilter } = useContext(FilterContext);
 
-  const handleClose = (category) => {
-    console.log(category, "closed");
+  const handleClose = (item) => {
+    setCategories({...categories,[item]: false});
+    const changed = filter.filter((ele)=>ele!==item);
+    setFilter(changed);
   };
   return (
     <div>
