@@ -3,10 +3,11 @@ import { useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { Input } from "@bigbinary/neetoui/v2";
 import { Search } from "@bigbinary/neeto-icons";
-import { FilterContext } from "../App";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { debounce } from "lodash";
+
+import { FilterContext } from "../App";
 
 function SearchBar({ showSearch, setShowSearch }) {
   const [allNews, setAllNews] = useState({});
@@ -84,7 +85,7 @@ function SearchBar({ showSearch, setShowSearch }) {
                     onClick={() => setShowSearch(false)}
                   >
                     <Link to={{ pathname: "./article", state: { news, e } }}>
-                      <div className=" rounded-lg p-3 pl-10 bg-gray-200 text-bold">
+                      <div className=" rounded-lg p-3 pl-10 hover:bg-purple-600 hover:text-white bg-gray-200 text-bold">
                         {item.title}
                       </div>
                     </Link>

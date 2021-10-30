@@ -1,10 +1,10 @@
 import "./App.css";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { useState, createContext } from "react";
+
 import Article from "./Components/ArticlePage/Article";
 import Home from "./Components/Home";
 import Topbar from "./Components/Topbar";
-// import Switch from "react-router-dom"
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import { useState, createContext } from "react";
 import UnknownPage from "./Components/UnknownPage";
 
 export const FilterContext = createContext();

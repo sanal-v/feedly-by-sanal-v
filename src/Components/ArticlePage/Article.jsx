@@ -1,6 +1,7 @@
 import {useLocation} from "react-router-dom"
-import SubSection from "../Landing/SubSection";
 import { Copy } from "@bigbinary/neeto-icons";
+
+import SubSection from "../Landing/SubSection";
 
 const Index = () =>{
 	const allNews=useLocation().state

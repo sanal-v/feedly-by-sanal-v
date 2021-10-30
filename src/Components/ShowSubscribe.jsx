@@ -2,9 +2,10 @@ import { Modal } from "@bigbinary/neetoui/v2";
 import { Button } from "@bigbinary/neetoui/v2";
 import { Typography } from "@bigbinary/neetoui/v2";
 import { Input } from "@bigbinary/neetoui/v2";
-import subPic from "../Pictures/Subpic.png"
 import {useState} from "react"
 import axios from "axios"
+
+import subPic from "../Pictures/Subpic.png"
 
 const ShowSubscibe = ({ showSubscibe, setShowSubscribe }) => {
 

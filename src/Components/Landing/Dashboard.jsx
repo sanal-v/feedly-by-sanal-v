@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { PageLoader } from "@bigbinary/neetoui/v2";
+
 import useFetch from "../Fetch";
 import SubSection from "./SubSection";
 import MainSection from "./MainSection";
-import { PageLoader } from "@bigbinary/neetoui/v2";
 
 const Dashboard = ({ category }) => {
   const [allNews, setAllNews] = useState();
