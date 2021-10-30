@@ -28,7 +28,7 @@ const MainSection =({news})=>{
                   <br />
                   <br />
                 </div>
-                <Link to ={{pathname: "./article", state:{news}}}>
+                <Link to ={{pathname: `/article/${news.data[0].url.split("/").slice(-1)}`, state:{news}}}>
                   Read more
                 </Link>
               </div>
