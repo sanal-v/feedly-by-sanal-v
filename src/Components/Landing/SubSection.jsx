@@ -1,6 +1,7 @@
 import {Link } from "react-router-dom"
 
 const SubSection = ({ news,list }) => {
+
   return (
     <div className="grid grid-cols-2 gap-x-28">
       {list.map(e => (
@@ -12,7 +13,7 @@ const SubSection = ({ news,list }) => {
               {news && news.data[e]?.author} at {news && news.data[e]?.time} on{" "}
               {news && news.data[e]?.date}
             </div>
-            <Link to ={{pathname: "./article", state:{news,e}}}>
+            <Link to ={{pathname: `/article/${news&& news.data[e].url.split("/").slice(-1)}`, state:{news,e}}}>
                 Read more
             </Link>
           </div>

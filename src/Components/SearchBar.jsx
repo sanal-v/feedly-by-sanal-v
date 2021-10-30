@@ -50,8 +50,8 @@ function SearchBar({ showSearch, setShowSearch }) {
   return ReactDOM.createPortal(
     <div>
       <div
-        className="bg-gray-700 fixed top-0 bottom-0 left-0 right-0 opacity-70"
-        onClick={() => setShowSearch(false)}
+        className="bg-black fixed top-0 bottom-0 left-0 right-0 opacity-80"
+        onClick={() => {setShowSearch(false); setSearchedNews()}}
       ></div>
       <div className="fixed top-80 w-full h-full">
         <Input
@@ -82,9 +82,9 @@ function SearchBar({ showSearch, setShowSearch }) {
                 return (
                   <div
                     className="p-3 bg-white "
-                    onClick={() => setShowSearch(false)}
+                    onClick={() => {setShowSearch(false); setSearchedNews()}}
                   >
-                    <Link to={{ pathname: "./article", state: { news, e } }}>
+                    <Link to={{ pathname: `/article/${news.data[e].url.split("/").slice(-1)}`, state: { news, e } }}>
                       <div className=" rounded-lg p-3 pl-10 hover:bg-purple-600 hover:text-white bg-gray-200 text-bold">
                         {item.title}
                       </div>
