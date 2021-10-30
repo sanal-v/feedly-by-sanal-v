@@ -1,8 +1,9 @@
 import React from "react";
-import unknownPic from "../Pictures/Unknown.png";
 import { Button } from "@bigbinary/neetoui/v2";
 import { Home } from "@bigbinary/neeto-icons";
 import { Link } from "react-router-dom";
+
+import unknownPic from "../Pictures/Unknown.png";
 
 function UnknownPage() {
   return (

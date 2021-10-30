@@ -3,13 +3,16 @@ import { Header } from "@bigbinary/neetoui/v2/layouts";
 import { Button } from "@bigbinary/neetoui/v2";
 import { Tooltip } from "@bigbinary/neetoui/v2";
 import {useState} from "react"
+
 import ShowSubscibe from "./ShowSubscribe";
 import ShowFilter from "./ShowFilter"
+import SearchBar from "./SearchBar";
 
 const Topbar = () => {
   const [showSubscibe, setShowSubscribe] = useState(false)
   const [showFilter, setShowFilter] = useState(false)
-
+  const [showSearch, setShowSearch] = useState(false)
+  console.log(showSearch)
   return (
     <div className="pl-6 pr-6 divide-y border-b-2">
       <Header
@@ -23,6 +26,7 @@ const Topbar = () => {
                 content: "Search",
                 placement: "bottom"
               }}
+              onClick={() => setShowSearch(!showSearch)}
             />
             <Button
               className="mr-2"
@@ -48,6 +52,7 @@ const Topbar = () => {
       />
       <ShowSubscibe showSubscibe={showSubscibe} setShowSubscribe={setShowSubscribe}/>
       <ShowFilter showFilter={showFilter} setShowFilter={setShowFilter} />
+      <SearchBar showSearch = {showSearch} setShowSearch = {setShowSearch} />
     </div>
   );
 };

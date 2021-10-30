@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Button } from "@bigbinary/neetoui/v2";
-import noNews from "../Pictures/Group.png";
 import { Edit } from "@bigbinary/neeto-icons";
-import SubSection from "./Landing/SubSection";
-import useFetch from "./useFetch";
 import { Modal } from "@bigbinary/neetoui/v2";
 import { Input } from "@bigbinary/neetoui/v2";
 import { Textarea } from "@bigbinary/neetoui/v2";
 import axios from "axios"
+
+import useFetch from "./Fetch";
+import SubSection from "./Landing/SubSection";
+import noNews from "../Pictures/Group.png";
 
 function NoNews() {
   const [showFeedback, setShowFeedback] = useState(false);
