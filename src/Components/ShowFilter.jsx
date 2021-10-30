@@ -15,6 +15,7 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
 
   const allCategories = ["all","national","business","sports","world","politics","technology","startup","entertainment","miscellaneous","science","automobile"]
   const {categories, setCategories,filter,setFilter}= useContext(FilterContext)
+  let temp = {}
 
   const handleSave =() =>{
     let selected = Object.keys(categories).filter(key => categories[key]==true)
@@ -24,9 +25,16 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
   const handleCheck = (e) => {
     setCategories({...categories,[e.target.name]:e.target.checked})
   };
+
+  const revertChanges = () =>{
+    filter.map(topic =>{
+      temp={...temp,[topic]:true}
+    })
+    setCategories({...temp})
+  }
  
   return (
-    <Pane isOpen={showFilter} onClose={() => setShowFilter(false)}>
+    <Pane isOpen={showFilter} onClose={()=>{setShowFilter(false);revertChanges()}}>
       <Pane.Header>
         <Typography style="h2" weight="semibold">
           Filter Articles
@@ -62,7 +70,7 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
           style="text"
           size="large"
           label="Cancel"
-          onClick={() => setShowFilter(false)}
+          onClick={() => {setShowFilter(false);revertChanges()}}
         />
       </Pane.Footer>
     </Pane>
