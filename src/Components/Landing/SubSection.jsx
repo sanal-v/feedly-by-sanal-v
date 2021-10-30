@@ -13,7 +13,7 @@ const SubSection = ({ news,list }) => {
               {news && news.data[e]?.author} at {news && news.data[e]?.time} on{" "}
               {news && news.data[e]?.date}
             </div>
-            <Link to ={{pathname: `/article/${news.data[e].url.split("/").slice(-1)}`, state:{news,e}}}>
+            <Link to ={{pathname: `/article/${news&& news.data[e].url.split("/").slice(-1)}`, state:{news,e}}}>
                 Read more
             </Link>
           </div>
