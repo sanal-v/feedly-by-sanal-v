@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { Input } from "@bigbinary/neetoui/v2";
@@ -6,14 +6,20 @@ import { Search } from "@bigbinary/neeto-icons";
 import { FilterContext } from "../App";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { debounce } from "lodash";
 
 function SearchBar({ showSearch, setShowSearch }) {
   const [allNews, setAllNews] = useState({});
   const [apiData, setApiData] = useState({});
   const [searchedNews, setSearchedNews] = useState();
 
-  let news= {};
-  let e = 0
+  const debou = useCallback(
+    debounce(val => setSearchedNews(val), 500),
+    []
+  );
+
+  let news = {};
+  let e = 0;
 
   let { categories, setCategories, filter, setFilter } =
     useContext(FilterContext);
@@ -51,27 +57,36 @@ function SearchBar({ showSearch, setShowSearch }) {
           className="mx-80"
           size="medium"
           prefix={<Search size={20} />}
-          onChange={e => setSearchedNews(e.target.value)}
+          onChange={e => debou(e.target.value)}
           nakedInput={true}
         />
         {searchedNews && (
-          <div className="text-center bg-white mx-80 ">
+          <div className="text-cente mx-80 overflow-y-auto max-h-80">
             {filter
               .flatMap(category => {
                 return allNews[category].data.filter(news => {
-                  let temp = news.title.toLowerCase().includes(searchedNews.toLowerCase());
-                  if(temp)  {news.category=category;return news;}
-                  return null
+                  let temp = news.title
+                    .toLowerCase()
+                    .includes(searchedNews.toLowerCase());
+                  if (temp) {
+                    news.category = category;
+                    return news;
+                  }
+                  return null;
                 });
               })
               .map(item => {
-                news=  allNews[item.category]
-                e=allNews[item.category].data.indexOf(item)
-                console.log("saaanam",e)
+                news = allNews[item.category];
+                e = allNews[item.category].data.indexOf(item);
                 return (
-                  <div className="pt-3" onClick={() => setShowSearch(false)}>
-                    <Link to={{ pathname: "./article", state: {news,e}}}>
-                    {item.title}
+                  <div
+                    className="p-3 bg-white "
+                    onClick={() => setShowSearch(false)}
+                  >
+                    <Link to={{ pathname: "./article", state: { news, e } }}>
+                      <div className=" rounded-lg p-3 pl-10 bg-gray-200 text-bold">
+                        {item.title}
+                      </div>
                     </Link>
                   </div>
                 );
