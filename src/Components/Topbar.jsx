@@ -12,7 +12,7 @@ const Topbar = () => {
   const [showSubscibe, setShowSubscribe] = useState(false)
   const [showFilter, setShowFilter] = useState(false)
   const [showSearch, setShowSearch] = useState(false)
-  console.log(showSearch)
+
   return (
     <div className="pl-6 pr-6 divide-y border-b-2">
       <Header

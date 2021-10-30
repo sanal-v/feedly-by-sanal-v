@@ -16,7 +16,6 @@ const Home = () => {
     const changed = filter.filter(ele => ele !== item);
     setFilter(changed);
   };
-  // console.log("all",allNews)
 
   return (
     <div>
