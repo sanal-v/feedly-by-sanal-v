@@ -25,7 +25,13 @@ const Dashboard = ({ category }) => {
   const newsToday ={category:news.category,data:todaysData}
   const sendNews= archived.archived ? news:newsToday
   
-  if(sendNews.data.length===0) return <div><NoNews /></div>
+  if (sendNews.data.length === 0)
+    return (
+      <div className="ml-40 mr-40 text-center mt-10 border-b-2 pb-5">
+        <h1>No news found for {sendNews.category} category. </h1> 
+        <h4> Try including the archived articles in the filter.</h4>
+      </div>
+    );
 
   return (
     <>
