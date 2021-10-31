@@ -2,13 +2,13 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { PageLoader } from "@bigbinary/neetoui/v2";
 
-import useFetch from "../Fetch";
+import Fetch from "../Fetch";
 import SubSection from "./SubSection";
 import MainSection from "./MainSection";
 
 const Dashboard = ({ category }) => {
   const [allNews, setAllNews] = useState();
-  const { news, loading } = useFetch(
+  const { news, loading } = Fetch(
     `https://inshortsapi.vercel.app/news?category=${category}`
   );
 

@@ -1,22 +1,47 @@
 import { useLocation } from "react-router-dom";
 import { Copy } from "@bigbinary/neeto-icons";
 import { Toastr } from "@bigbinary/neetoui/v2";
+import { useParams } from "react-router-dom";
+import { PageLoader } from "@bigbinary/neetoui/v2";
+
 
 import SubSection from "../Landing/SubSection";
 import UnknownPage from "../UnknownPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import Fetch from "../Fetch";
+
 
 const Index = () => {
+  const { slug, category } = useParams();
   const allNews = useLocation().state;
-  if (!allNews) return <UnknownPage />;
-  const news = allNews.news;
-  const n = allNews.e ? allNews.e : 0;
+  
+  const {news,loading} = Fetch(
+    `https://inshortsapi.vercel.app/news?category=${category}`
+  );
+  const data =
+    news &&
+    news.data.map(ele => ele.url.split("/").slice(-1).join());
+
+  const p = data && data.indexOf(slug);
+
+  if (p === -1) return <UnknownPage />;
+  if (loading)
+    return (
+      <div className="mt-60">
+        <PageLoader />
+      </div>
+    );
+  const n = p;
   const list = [0, 1, 2, 3, 4];
   list.splice(n, 1);
+  console.log(n);
+
   const copyUrl = url => {
     navigator.clipboard.writeText(url);
   };
+
+
   return (
     <div className=" mx-40 mt-10">
       <ToastContainer />
