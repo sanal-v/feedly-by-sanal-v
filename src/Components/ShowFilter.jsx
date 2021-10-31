@@ -47,6 +47,7 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
         <div>
           {allCategories.map(cat =>(
             <Checkbox
+            key = {cat}
             className="p-5"
             id="filter"
             label={cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -55,6 +56,15 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
             onChange={handleCheck}
           />
           ))}
+           <Checkbox
+            // key = {cat}
+            className="p-5"
+            id="filter"
+            label="Archived"
+            name="Archived"
+            // checked={categories[cat]||false}
+            onChange={handleCheck}
+            />
         </div>
       </Pane.Body>
       <Pane.Footer className="flex items-center space-x-2">

@@ -27,6 +27,7 @@ const Home = () => {
         <div className="ml-40 mr-40 mt-5">
           {filter.map(category => (
             <Tag
+              key = {category}
               className="mr-5"
               label={category.charAt(0).toUpperCase() + category.slice(1)}
               onClose={() => handleClose(category)}

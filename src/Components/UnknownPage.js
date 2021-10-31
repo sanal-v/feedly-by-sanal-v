@@ -8,7 +8,7 @@ import unknownPic from "../Pictures/Unknown.png";
 function UnknownPage() {
   return (
     <div className="absolute top-0 left-0 flex flex-col justify-center items-center w-full h-full">
-      <img src={unknownPic} />
+      <img src={unknownPic} alt ="unknown"/>
       <h1 className="mt-5 text-center max-w-lg">You have landed somewhere unknown.</h1>
       <Link to={{ pathname: "/" }}>
         <Button

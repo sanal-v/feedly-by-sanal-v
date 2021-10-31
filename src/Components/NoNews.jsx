@@ -6,7 +6,7 @@ import { Input } from "@bigbinary/neetoui/v2";
 import { Textarea } from "@bigbinary/neetoui/v2";
 import axios from "axios"
 
-import useFetch from "./Fetch";
+import Fetch from "./Fetch";
 import SubSection from "./Landing/SubSection";
 import noNews from "../Pictures/Group.png";
 
@@ -14,7 +14,7 @@ function NoNews() {
   const [showFeedback, setShowFeedback] = useState(false);
   const [userData, setuserData] = useState({})
 
-  const { news, loading } = useFetch(
+  const { news, loading } = Fetch(
     `https://inshortsapi.vercel.app/news?category=all`
   );
 

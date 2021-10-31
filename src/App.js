@@ -31,7 +31,7 @@ function App() {
           <Topbar />
           <Switch>
             <Route exact path="/" component={() => <Home />} />
-            <Route exact path="/article/:slug" component={() => <Article />} />
+            <Route exact path="/article/:category/:slug" component={() => <Article />} />
             <Route exact path="*" component={() => <UnknownPage />}/>
           </Switch>
         </div>

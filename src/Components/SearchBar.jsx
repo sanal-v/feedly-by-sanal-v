@@ -55,14 +55,17 @@ function SearchBar({ showSearch, setShowSearch }) {
       ></div>
       <div className="fixed top-80 w-full h-full">
         <Input
-          className="mx-80"
+          className="mx-96 focus:border-2 focus:border-blue-600"
+          autocomplete="off"
+          autofocus="autofocus"
           size="medium"
-          prefix={<Search size={20} />}
+          prefix={<Search className="" size={20} />}
           onChange={e => debou(e.target.value)}
           nakedInput={true}
+
         />
         {searchedNews && (
-          <div className="text-cente mx-80 overflow-y-auto max-h-80">
+          <div className="text-cente mx-96 overflow-y-auto max-h-80">
             {filter
               .flatMap(category => {
                 return allNews[category].data.filter(news => {
@@ -84,7 +87,7 @@ function SearchBar({ showSearch, setShowSearch }) {
                     className="p-3 bg-white "
                     onClick={() => {setShowSearch(false); setSearchedNews()}}
                   >
-                    <Link to={{ pathname: `/article/${news.data[e].url.split("/").slice(-1)}`, state: { news, e } }}>
+                    <Link to={{ pathname: `/article/${news&&news.category}/${news.data[e].url.split("/").slice(-1)}`, state: { news, e } }}>
                       <div className=" rounded-lg p-3 pl-10 hover:bg-purple-600 hover:text-white bg-gray-200 text-bold">
                         {item.title}
                       </div>
