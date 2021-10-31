@@ -1,7 +1,6 @@
 import {Link } from "react-router-dom"
 
 const MainSection =({news})=>{
-    const e=0
     return(
           <div>
             <h1>
@@ -29,8 +28,8 @@ const MainSection =({news})=>{
                   <br />
                   <br />
                 </div>
-                <Link to ={{pathname: `/article/${news&&news.category}/${news.data[0].url.split("/").slice(-1)}`, state:{news,e}}}>
-                  Read more
+                <Link to ={{pathname: `/article/${news&&news.category}/${news && news.data[0]?.url.split("/").slice(-1)}`}}>
+                  <p className="text-blue-700"> Read more </p>
                 </Link>
               </div>
             </div>

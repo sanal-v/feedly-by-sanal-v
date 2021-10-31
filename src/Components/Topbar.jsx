@@ -1,7 +1,6 @@
 import { Search, Notification, Filter } from "@bigbinary/neeto-icons";
 import { Header } from "@bigbinary/neetoui/v2/layouts";
 import { Button } from "@bigbinary/neetoui/v2";
-import { Tooltip } from "@bigbinary/neetoui/v2";
 import {useState} from "react"
 
 import ShowSubscibe from "./ShowSubscribe";

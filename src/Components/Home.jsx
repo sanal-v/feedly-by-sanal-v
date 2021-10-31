@@ -1,11 +1,9 @@
 import Dashboard from "./Landing/Dashboard";
-import ShowFilter from "./ShowFilter";
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import { Tag } from "@bigbinary/neetoui/v2";
 
 import { FilterContext } from "../App";
 import NoNews from "./NoNews";
-import Fetch from "./Fetch";
 
 const Home = () => {
   let { categories, setCategories, filter, setFilter } =

@@ -1,15 +1,14 @@
-import axios from "axios";
-import { useState, useEffect,useContext } from "react";
+import { useState,useContext } from "react";
 import { PageLoader } from "@bigbinary/neetoui/v2"
 
 import { FilterContext } from "../../App";
 import Fetch from "../Fetch";
 import SubSection from "./SubSection";
 import MainSection from "./MainSection";
+import NoNews from "../NoNews";
 
 const Dashboard = ({ category }) => {
   const {archived} = useContext(FilterContext)
-  const [allNews, setAllNews] = useState();
   const { news, loading } = Fetch(
     `https://inshortsapi.vercel.app/news?category=${category}`
   );
@@ -24,9 +23,9 @@ const Dashboard = ({ category }) => {
   const today = new Date().toDateString()
   const todaysData = news.data.filter(each => new Date(each?.date.slice(0,11)).toDateString()===today)
   const newsToday ={category:news.category,data:todaysData}
-  // console.log("archived=",archived.archived)
   const sendNews= archived.archived ? news:newsToday
   
+  if(sendNews.data.length===0) return <div><NoNews /></div>
 
   return (
     <>

@@ -1,11 +1,9 @@
 import { Pane } from "@bigbinary/neetoui/v2";
 import { Button } from "@bigbinary/neetoui/v2";
 import { Typography } from "@bigbinary/neetoui/v2";
-import { Input } from "@bigbinary/neetoui/v2";
 import { Checkbox } from "@bigbinary/neetoui/v2";
 import { Check } from "@bigbinary/neeto-icons";
-import {useState,useContext} from "react"
-import Home from "./Home";
+import {useContext} from "react"
 import {Link } from "react-router-dom"
 
 import { FilterContext } from "../App";
@@ -18,12 +16,15 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
   let temp = {}
 
   const handleSave =() =>{
-    let selected = Object.keys(categories).filter(key => categories[key]==true)
+    let selected = Object.keys(categories).filter(key => categories[key]===true)
     setFilter(selected)
   }
+
+  
   
   const handleCheck = (e) => {
     setCategories({...categories,[e.target.name]:e.target.checked})
+    
   };
 
   const handleArchived = e =>{
@@ -35,6 +36,7 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
       temp={...temp,[topic]:true}
     })
     setCategories({...temp})
+    // setArchived({archived:!archived.archived})
   }
  
   return (
@@ -57,7 +59,7 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
             label={cat.charAt(0).toUpperCase() + cat.slice(1)}
             name={cat}
             checked={categories[cat]||false}
-            onChange={handleCheck}
+            onChange={(e)=>handleCheck(e)}
           />
           ))}
           <div className="border-b-2 w-full"></div>
