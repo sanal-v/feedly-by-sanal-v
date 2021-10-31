@@ -24,9 +24,11 @@ function App() {
     "sports":true
   });
 
+  const [archived, setArchived] = useState({archived:true})
+
   return (
     <Router>
-      <FilterContext.Provider value={{ categories, setCategories, filter, setFilter }}>
+      <FilterContext.Provider value={{ categories, setCategories, filter, setFilter, archived, setArchived}}>
         <div>
           <Topbar />
           <Switch>

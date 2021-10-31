@@ -1,6 +1,14 @@
 import {Link } from "react-router-dom"
 
-const SubSection = ({ news,list }) => {
+const SubSection = ({ news,n }) => {
+
+  const length=news && news.data.length
+  // console.log("length=",length)
+
+  const p = length<5 ? length : 5
+
+  const list = Array.from(Array(p).keys())
+  list.splice(n,1)
 
   return (
     <div className="grid grid-cols-2 gap-x-28">

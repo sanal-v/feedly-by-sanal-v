@@ -35,7 +35,7 @@ const Index = () => {
   const n = p;
   const list = [0, 1, 2, 3, 4];
   list.splice(n, 1);
-  console.log(n);
+  console.log("n=",n);
 
   const copyUrl = url => {
     navigator.clipboard.writeText(url);
@@ -101,7 +101,7 @@ const Index = () => {
           </div>
         </div>
       )}
-      <SubSection news={news} list={list} />
+      <SubSection news={news} n={n} />
     </div>
   );
 };
