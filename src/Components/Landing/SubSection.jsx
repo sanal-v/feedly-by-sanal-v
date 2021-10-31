@@ -4,7 +4,7 @@ const SubSection = ({ news,n }) => {
 
   const length=news && news.data.length
   // console.log("length=",length)
-
+  n= n>4? 4:n
   const p = length<5 ? length : 5
 
   const list = Array.from(Array(p).keys())

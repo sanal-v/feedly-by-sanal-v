@@ -48,7 +48,7 @@ const Topbar = () => {
             />
           </>
         }
-        title="Feed.ly"
+        title={<a href="/">Feed.ly</a>}
       />
       <ShowSubscibe showSubscibe={showSubscibe} setShowSubscribe={setShowSubscribe}/>
       <ShowFilter showFilter={showFilter} setShowFilter={setShowFilter} />

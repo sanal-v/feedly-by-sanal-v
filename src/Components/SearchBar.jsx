@@ -6,6 +6,7 @@ import { Search } from "@bigbinary/neeto-icons";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { debounce } from "lodash";
+import { Tag } from "@bigbinary/neetoui/v2";
 
 import { FilterContext } from "../App";
 
@@ -51,18 +52,20 @@ function SearchBar({ showSearch, setShowSearch }) {
     <div>
       <div
         className="bg-black fixed top-0 bottom-0 left-0 right-0 opacity-80"
-        onClick={() => {setShowSearch(false); setSearchedNews()}}
+        onClick={() => {
+          setShowSearch(false);
+          setSearchedNews();
+        }}
       ></div>
       <div className="fixed top-80 w-full h-full">
         <Input
           className="mx-96 focus:border-2 focus:border-blue-600"
-          autocomplete="off"
-          autofocus="autofocus"
+          autoComplete="off"
+          autoFocus="autofocus"
           size="medium"
           prefix={<Search className="" size={20} />}
           onChange={e => debou(e.target.value)}
           nakedInput={true}
-
         />
         {searchedNews && (
           <div className="text-cente mx-96 overflow-y-auto max-h-80">
@@ -85,11 +88,29 @@ function SearchBar({ showSearch, setShowSearch }) {
                 return (
                   <div
                     className="p-3 bg-white "
-                    onClick={() => {setShowSearch(false); setSearchedNews()}}
+                    onClick={() => {
+                      setShowSearch(false);
+                      setSearchedNews();
+                    }}
                   >
-                    <Link to={{ pathname: `/article/${news&&news.category}/${news.data[e].url.split("/").slice(-1)}`, state: { news, e } }}>
+                    <Link
+                      to={{
+                        pathname: `/article/${
+                          news && news.category
+                        }/${news.data[e].url.split("/").slice(-1)}`,
+                        state: { news, e }
+                      }}
+                    >
                       <div className=" rounded-lg p-3 pl-10 hover:bg-purple-600 hover:text-white bg-gray-200 text-bold">
                         {item.title}
+                        {/* <Tag
+                          className="ml-2"
+                          color="green"
+                          label={
+                            item.category.charAt(0).toUpperCase() +
+                            item.category.slice(1)
+                          }
+                        /> */}
                       </div>
                     </Link>
                   </div>

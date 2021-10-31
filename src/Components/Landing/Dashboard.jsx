@@ -13,7 +13,7 @@ const Dashboard = ({ category }) => {
   const { news, loading } = Fetch(
     `https://inshortsapi.vercel.app/news?category=${category}`
   );
-
+   
   if (loading)
     return (
       <div className="py-10 mt-20">
@@ -26,16 +26,16 @@ const Dashboard = ({ category }) => {
   const newsToday ={category:news.category,data:todaysData}
   // console.log("archived=",archived.archived)
   const sendNews= archived.archived ? news:newsToday
-
+  
 
   return (
     <>
-      {news && news.data[0] && (
+      
         <div className="ml-40 mr-40 mt-5 border-b-2 pb-5">
           <MainSection news={sendNews} />
           <SubSection news={sendNews} n={0}/>
         </div>
-      )}
+     
     </>
   );
 };

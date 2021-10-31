@@ -60,8 +60,8 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
             onChange={handleCheck}
           />
           ))}
+          <div className="border-b-2 w-full"></div>
            <Checkbox
-            // key = {cat}
             className="p-5"
             id="filter"
             label="Include archived articles"
