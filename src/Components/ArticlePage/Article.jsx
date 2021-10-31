@@ -35,7 +35,7 @@ const Index = () => {
   const n = p;
   const list = [0, 1, 2, 3, 4];
   list.splice(n, 1);
-  console.log(n);
+//   console.log("n=",n);
 
   const copyUrl = url => {
     navigator.clipboard.writeText(url);
@@ -43,7 +43,7 @@ const Index = () => {
 
 
   return (
-    <div className=" mx-40 mt-10">
+    <div className=" mx-40 mt-10 border-b-2 pb-5">
       <ToastContainer />
       {news && (
         <div className="flex-col border-b-2 pb-10">
@@ -101,7 +101,7 @@ const Index = () => {
           </div>
         </div>
       )}
-      <SubSection news={news} list={list} />
+      <SubSection news={news} n={n} />
     </div>
   );
 };

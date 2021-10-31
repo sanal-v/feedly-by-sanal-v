@@ -14,7 +14,7 @@ import { FilterContext } from "../App";
 const ShowFilter = ({ showFilter, setShowFilter }) => {
 
   const allCategories = ["all","national","business","sports","world","politics","technology","startup","entertainment","miscellaneous","science","automobile"]
-  const {categories, setCategories,filter,setFilter}= useContext(FilterContext)
+  const {categories, setCategories,filter,setFilter,archived,setArchived}= useContext(FilterContext)
   let temp = {}
 
   const handleSave =() =>{
@@ -25,6 +25,10 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
   const handleCheck = (e) => {
     setCategories({...categories,[e.target.name]:e.target.checked})
   };
+
+  const handleArchived = e =>{
+    setArchived({...archived,[e.target.name]:e.target.checked})
+  }
 
   const revertChanges = () =>{
     filter.map(topic =>{
@@ -56,14 +60,14 @@ const ShowFilter = ({ showFilter, setShowFilter }) => {
             onChange={handleCheck}
           />
           ))}
+          <div className="border-b-2 w-full"></div>
            <Checkbox
-            // key = {cat}
             className="p-5"
             id="filter"
-            label="Archived"
-            name="Archived"
-            // checked={categories[cat]||false}
-            onChange={handleCheck}
+            label="Include archived articles"
+            name="archived"
+            checked={archived["archived"]||false}
+            onChange={handleArchived}
             />
         </div>
       </Pane.Body>
