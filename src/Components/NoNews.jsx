@@ -14,7 +14,7 @@ function NoNews() {
   const [showFeedback, setShowFeedback] = useState(false);
   const [userData, setuserData] = useState({})
 
-  const { news, loading } = Fetch(
+  const { news } = Fetch(
     `https://inshortsapi.vercel.app/news?category=all`
   );
 
@@ -22,8 +22,8 @@ function NoNews() {
     setuserData({...userData,[e.target.name]:e.target.value})
   }
 
-  const handleSubmit =async() =>{
-      const res = await axios.post("https://webhook.site/1cf829a7-7ee2-4529-b864-d8c4ee897224",userData)
+  const handleSubmit = () =>{
+      axios.post("https://webhook.site/1cf829a7-7ee2-4529-b864-d8c4ee897224",userData)
       setuserData({})
   }
 
@@ -85,7 +85,7 @@ function NoNews() {
         </div>
       </div>
       <div>
-        <SubSection news={news} list={[0, 1, 2, 3, 4, 5]} />
+        <SubSection news={news} />
       </div>
     </div>
   );

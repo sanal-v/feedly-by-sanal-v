@@ -1,6 +1,5 @@
 import { Modal } from "@bigbinary/neetoui/v2";
 import { Button } from "@bigbinary/neetoui/v2";
-import { Typography } from "@bigbinary/neetoui/v2";
 import { Input } from "@bigbinary/neetoui/v2";
 import {useState} from "react"
 import axios from "axios"
@@ -17,7 +16,7 @@ const ShowSubscibe = ({ showSubscibe, setShowSubscribe }) => {
 
 
   const handleSignUp = () =>{
-    const res = axios.post("https://webhook.site/1cf829a7-7ee2-4529-b864-d8c4ee897224",email)
+    axios.post("https://webhook.site/1cf829a7-7ee2-4529-b864-d8c4ee897224",email)
     setEmail({})
   }
 

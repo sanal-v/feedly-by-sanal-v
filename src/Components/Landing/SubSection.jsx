@@ -3,7 +3,6 @@ import {Link } from "react-router-dom"
 const SubSection = ({ news,n }) => {
 
   const length=news && news.data.length
-  // console.log("length=",length)
   n= n>4? 4:n
   const p = length<5 ? length : 5
 
@@ -21,8 +20,8 @@ const SubSection = ({ news,n }) => {
               {news && news.data[e]?.author} at {news && news.data[e]?.time} on{" "}
               {news && news.data[e]?.date}
             </div>
-            <Link to ={{pathname: `/article/${news&&news.category}/${news&& news.data[e].url.split("/").slice(-1)}`, state:{news,e}}}>
-                Read more
+            <Link to ={{pathname: `/article/${news&&news.category}/${news&& news.data[e].url.split("/").slice(-1)}`}}>
+              <p className="text-blue-700"> Read more </p>
             </Link>
           </div>
         </div>

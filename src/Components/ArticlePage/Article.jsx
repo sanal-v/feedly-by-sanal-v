@@ -14,7 +14,6 @@ import Fetch from "../Fetch";
 
 const Index = () => {
   const { slug, category } = useParams();
-  const allNews = useLocation().state;
   
   const {news,loading} = Fetch(
     `https://inshortsapi.vercel.app/news?category=${category}`
@@ -23,19 +22,17 @@ const Index = () => {
     news &&
     news.data.map(ele => ele.url.split("/").slice(-1).join());
 
-  const p = data && data.indexOf(slug);
+  const n = data && data.indexOf(slug);
 
-  if (p === -1) return <UnknownPage />;
+  if (n === -1) return <UnknownPage />;
   if (loading)
     return (
       <div className="mt-60">
         <PageLoader />
       </div>
     );
-  const n = p;
-  const list = [0, 1, 2, 3, 4];
-  list.splice(n, 1);
-//   console.log("n=",n);
+
+
 
   const copyUrl = url => {
     navigator.clipboard.writeText(url);

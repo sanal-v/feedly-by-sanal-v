@@ -6,7 +6,6 @@ import { Search } from "@bigbinary/neeto-icons";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { debounce } from "lodash";
-import { Tag } from "@bigbinary/neetoui/v2";
 
 import { FilterContext } from "../App";
 
@@ -23,7 +22,7 @@ function SearchBar({ showSearch, setShowSearch }) {
   let news = {};
   let e = 0;
 
-  let { categories, setCategories, filter, setFilter } =
+  let { filter } =
     useContext(FilterContext);
 
   const getItem = async topic => {
@@ -63,6 +62,7 @@ function SearchBar({ showSearch, setShowSearch }) {
           autoComplete="off"
           autoFocus="autofocus"
           size="medium"
+          placeholder="Search for an article."
           prefix={<Search className="" size={20} />}
           onChange={e => debou(e.target.value)}
           nakedInput={true}
@@ -98,19 +98,10 @@ function SearchBar({ showSearch, setShowSearch }) {
                         pathname: `/article/${
                           news && news.category
                         }/${news.data[e].url.split("/").slice(-1)}`,
-                        state: { news, e }
                       }}
                     >
                       <div className=" rounded-lg p-3 pl-10 hover:bg-purple-600 hover:text-white bg-gray-200 text-bold">
                         {item.title}
-                        {/* <Tag
-                          className="ml-2"
-                          color="green"
-                          label={
-                            item.category.charAt(0).toUpperCase() +
-                            item.category.slice(1)
-                          }
-                        /> */}
                       </div>
                     </Link>
                   </div>
