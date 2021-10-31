@@ -68,7 +68,7 @@ function NoNews() {
       </Modal>
     </div>
   ) : (
-    <div className="ml-40 mr-40 mt-5 border-b-2 pb-5">
+    <div className="ml-40 mr-40 mt-5 border-b-2 pb-5 ">
       <div className="mt-10 flex flex-col items-center border-b-2 pb-5">
         <img className="ml-auto mr-auto mt-10 " src={noNews} />
         <h1 className="text-center mt-5">No news articles found</h1>

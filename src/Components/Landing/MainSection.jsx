@@ -28,7 +28,7 @@ const MainSection =({news})=>{
                   <br />
                   <br />
                 </div>
-                <Link to ={{pathname: `/article/${news&&news.category}/${news.data[0].url.split("/").slice(-1)}`}}>
+                <Link to ={{pathname: `/article/${news&&news.category}/${news && news.data[0]?.url.split("/").slice(-1)}`}}>
                   <p className="text-blue-700"> Read more </p>
                 </Link>
               </div>

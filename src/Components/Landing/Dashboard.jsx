@@ -5,6 +5,7 @@ import { FilterContext } from "../../App";
 import Fetch from "../Fetch";
 import SubSection from "./SubSection";
 import MainSection from "./MainSection";
+import NoNews from "../NoNews";
 
 const Dashboard = ({ category }) => {
   const {archived} = useContext(FilterContext)
@@ -24,6 +25,7 @@ const Dashboard = ({ category }) => {
   const newsToday ={category:news.category,data:todaysData}
   const sendNews= archived.archived ? news:newsToday
   
+  if(sendNews.data.length===0) return <div><NoNews /></div>
 
   return (
     <>
